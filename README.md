@@ -68,5 +68,5 @@ PLAY RECAP *********************************************************************
 - :heavy_check_mark: Fleet launcher 
 - :heavy_check_mark: Rsyslog 
 - :black_square_button: Wazuh 
-
+- :black_square_button: Windows compatibility
 
