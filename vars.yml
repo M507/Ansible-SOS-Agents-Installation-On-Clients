@@ -1,0 +1,6 @@
+fleet: true
+wazuh: false
+rsyslog: true
+
+sos_server: 10.10.10.1
+key: something

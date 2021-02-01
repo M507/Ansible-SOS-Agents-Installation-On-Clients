@@ -1,0 +1,36 @@
+---
+- name: Copy Fleet launcher package if Debian/Ubuntu
+  copy:
+    src: nix/deb-launcher.deb
+    dest: /tmp/deb-launcher.deb
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: Install Fleet launcher if debian/Ubuntu
+  apt:
+    deb: /tmp/deb-launcher.deb
+  become: yes
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+
+- name: Copy Fleet launcher package on CentOS/Redhat
+  copy:
+    src: nix/rpm-launcher.rpm
+    dest: /tmp/rpm-launcher.rpm
+  when:  ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+- name: Install Fleet launcher if CentOS/Redhat
+  yum:
+    name: /tmp/rpm-launcher.rpm
+  when:  ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+- name: Start Fleet launcher
+  service:
+    name: launcher.so-launcher
+    state: started
+
+- name: Enable Fleet launcher
+  service:
+    name: launcher.so-launcher
+    enabled: yes
+
+

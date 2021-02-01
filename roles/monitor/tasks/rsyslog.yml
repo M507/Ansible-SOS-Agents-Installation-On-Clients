@@ -1,0 +1,19 @@
+---
+
+- name: Add a line to a rsyslog conf
+  lineinfile:
+    path: /etc/rsyslog.conf
+    line: "*.* @@{{ sos_server }}"
+
+- name: Restart Rsyslog
+  service:
+    name: rsyslog
+    state: restarted
+
+- name: Enable Rsyslog
+  service:
+    name: rsyslog
+    enabled: yes
+
+
+

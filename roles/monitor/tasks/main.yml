@@ -1,0 +1,15 @@
+---
+- name: Include fleet
+  include_tasks: fleet.yml
+  tags: fleet
+  when: 'fleet'
+
+- name: Include Rsyslog
+  include_tasks: rsyslog.yml
+  tags: rsyslog
+  when: 'rsyslog'
+
+- name: Include wazuh
+  include_tasks: wazuh.yml
+  tags: wazuh
+  when: 'wazuh'
