@@ -7,7 +7,7 @@ This playbook configures rsyslog and installs Osquery Fleet launcher.
 - Change sos_server variable in var.yml.
 - Download DEB and RPM osquery packages from `https://sos_server/#/downloads`. You should have two files:
   - deb-launcher.deb
-  - rpm-launcher.rp
+  - rpm-launcher.rpm
 - Copy the two downloaded files to `roles/monitor/files/nix/`
 - Install the `ansible` and `sshpass`.
 - Edit `hosts.ini` according to your network then enjoy : )
