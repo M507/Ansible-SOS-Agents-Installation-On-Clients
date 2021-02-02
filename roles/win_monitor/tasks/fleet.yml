@@ -1,0 +1,20 @@
+---
+
+- name: Copy msi-launcher.msi
+  win_copy:
+    src: "{{ item }}"
+    dest: 'C:\tmp'
+  with_fileglob:
+    - "msi-launcher.msi"
+
+- name: Install Kolide Launcher
+  win_package:
+    path: C:\tmp\msi-launcher.msi
+    state: present
+
+- name: Restart The Kolide Launcher (so-launcher)
+  win_service:
+    name: LauncherSoLauncherSvc
+    start_mode: auto
+    state: restarted
+

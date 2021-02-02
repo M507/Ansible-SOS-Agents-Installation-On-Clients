@@ -1,0 +1,22 @@
+---
+
+- name: Creating Temporary Directory
+  win_file:
+    path: 'C:\tmp\'
+    state: directory
+
+- name: Include Winlogbeat
+  include_tasks: winlogbeat.yml
+  tags: winlogbeat
+  when: 'winlogbeat'
+
+- name: Include Fleet
+  include_tasks: fleet.yml
+  tags: win_fleet
+  when: 'win_fleet'
+
+- name: Include wazuh
+  include_tasks: wazuh.yml
+  tags: win_wazuh
+  when: 'win_wazuh'
+

@@ -1,6 +1,12 @@
-fleet: true
-wazuh: false
-rsyslog: true
+# Linux
+nix_fleet: true
+nix_wazuh: false
+nix_rsyslog: true
 
-sos_server: 10.10.10.1
-key: something
+# Windows 
+win_fleet: true
+win_wazuh: true
+winlogbeat: true
+
+# Security Onion IP Address
+sos_server: 192.168.1.1

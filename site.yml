@@ -1,7 +1,17 @@
 ---
-- hosts: all
+- hosts: LinuxClients1
   vars_files:
     - vars.yml
   roles:
-      - monitor
+      - nix_monitor
   gather_facts: yes
+
+
+- hosts: WindowsClients1
+  vars_files:
+    - vars.yml
+  roles:
+      - win_monitor
+  gather_facts: yes
+
+

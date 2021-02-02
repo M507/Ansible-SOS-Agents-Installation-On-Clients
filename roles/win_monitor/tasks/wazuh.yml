@@ -1,0 +1,21 @@
+---
+
+- name: Copy wazuh-agent.msi
+  win_copy:
+    src: "{{ item }}"
+    dest: 'C:\tmp'
+  with_fileglob:
+    - "wazuh-agent.msi"
+
+- name: Install Wazuh
+  win_package:
+    path: C:\tmp\wazuh-agent.msi
+    arguments: /q WAZUH_MANAGER="{{ sos_server }}" WAZUH_REGISTRATION_SERVER="{{ sos_server }}"
+    state: present
+
+- name: Restart OssecSvc service
+  win_service:
+    name: OssecSvc
+    start_mode: auto
+    state: restarted
+

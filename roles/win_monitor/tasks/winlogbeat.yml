@@ -1,0 +1,25 @@
+---
+- name: Copy winlogbeat-oss.msi
+  win_copy:
+    src: "{{ item }}"
+    dest: 'C:\tmp'
+  with_fileglob:
+    - "winlogbeat-oss.msi"
+
+- name: Install Winlogbeat
+  win_package:
+    path: C:\tmp\winlogbeat-oss.msi
+    state: present
+
+- name: Copy winlogbeat.yml file to C:\ProgramData\Elastic\Beats\winlogbeat
+  win_copy:
+    src: "{{ item }}"
+    dest: 'C:\ProgramData\Elastic\Beats\winlogbeat'
+  with_fileglob:
+    - "winlogbeat.yml"
+
+- name: Restart winlogbeat service
+  win_service:
+    name: winlogbeat
+    start_mode: auto
+    state: restarted

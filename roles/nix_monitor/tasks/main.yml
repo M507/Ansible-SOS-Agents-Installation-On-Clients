@@ -1,15 +1,15 @@
 ---
 - name: Include fleet
   include_tasks: fleet.yml
-  tags: fleet
-  when: 'fleet'
+  tags: nix_fleet
+  when: 'nix_fleet'
 
 - name: Include Rsyslog
   include_tasks: rsyslog.yml
-  tags: rsyslog
-  when: 'rsyslog'
+  tags: nix_rsyslog
+  when: 'nix_rsyslog'
 
 - name: Include wazuh
   include_tasks: wazuh.yml
-  tags: wazuh
-  when: 'wazuh'
+  tags: nix_wazuh
+  when: 'nix_wazuh'
