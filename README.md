@@ -13,7 +13,7 @@ This playbook configures rsyslog and installs Osquery Fleet launcher.
 - Edit `hosts.ini` according to your network then enjoy : )
 
 
-Expected outout:
+Outout:
 ```sh
 PLAY [all] *****************************************************************************************************************************************
 
