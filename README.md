@@ -1,6 +1,6 @@
 ## SOS-Agents-Installation-On-Clients
 
-This playbook configures rsyslog and installs Osquery Fleet launcher.
+This playbook configures and deploys rsyslog, Wazuh, Kolide Fleet launcher, OSquery, and Winlogbeat.
 
 ## Steps to use:
 - Change sos_server variable in var.yml.
